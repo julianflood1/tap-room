@@ -7,7 +7,7 @@ import { Keg } from './keg.model';
   <div class= "container">
     <h1>{{currentProject}}</h1>
     <h3> Currently we have these beers: {{beer1}}/{{beer2}}/{{beer3}}</h3>
-    <keg-list></keg-list>
+    <keg-list [childKegList]="masterKegList" (clickSender)="editKeg($event)"></keg-list>
     <br>
     <div *ngIf="selectedKeg">
       <label>Edit Keg:</label>
@@ -31,6 +31,11 @@ export class AppComponent {
 
   selectedKeg = null;
 
+  masterKegList: Keg[] = [
+    new Keg('Traditional Lager', 'Yuengling', '$5.00', '4.5%', 3),
+    new Keg('Utopias', 'Samuel Adams', '$5.00', '27.0%', 2),
+    new Keg('Celebration IPA', 'Sierra Nevada', '$5.00', '6.8%', 2)
+  ];
 
   finishEditing() {
     this.selectedKeg = null;
