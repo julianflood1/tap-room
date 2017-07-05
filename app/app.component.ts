@@ -9,16 +9,7 @@ import { Keg } from './keg.model';
     <h3> Currently we have these beers: {{beer1}}/{{beer2}}/{{beer3}}</h3>
     <keg-list [childKegList]="masterKegList" (clickSender)="editKeg($event)"></keg-list>
     <br>
-    <div *ngIf="selectedKeg">
-      <label>Edit Keg:</label>
-      <input [(ngModel)] = "selectedKeg.name">
-      <input [(ngModel)] = "selectedKeg.brand">
-      <input [(ngModel)] = "selectedKeg.price">
-      <input [(ngModel)] = "selectedKeg.alcoholContent">
-      <button (click)="finishEditing()">Done</button>
-    </div>
-    <br>
-
+    <edit-keg [childSelectedKeg]="selectedKeg" (doneButtonClickedSender)="finishEditing()"></edit-keg>
   </div>
   `
 })
