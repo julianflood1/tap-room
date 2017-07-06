@@ -23,7 +23,10 @@ export class AppComponent {
   masterKegList: Keg[] = [
     new Keg('Traditional Lager', 'Yuengling',5 , 4.5, 124),
     new Keg('Utopias', 'Samuel Adams', 3, 27, 124),
-    new Keg('Celebration IPA', 'Sierra Nevada', 4, 6.8, 124)
+    new Keg('Celebration IPA', 'Sierra Nevada', 4, 6.8, 124),
+    new Keg('Heineken', 'Heineken Pilsner', 3, 5 , 124),
+    new Keg('Black Bear Stout', 'Alameda Brewhouse', 7, 7, 124),
+    new Keg('High Life', 'Miller', 2, 4.6, 124)
   ];
 
   editKeg(clickedKeg) {
