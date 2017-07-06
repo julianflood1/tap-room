@@ -1,0 +1,62 @@
+ol{
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+li {
+  border: 1px solid black;
+  width: 300px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+#addkeg{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 20px;
+  & button{
+    height: 40px;
+    width: 100px;
+  }
+}
+
+#addkeg input {
+  width: 400px;
+  margin-bottom: 20px;
+}
+
+#addkeg h1 {
+  margin-bottom: 50px;
+  font-size: 40px;
+}
+#addkeg label {
+  margin: 10px;
+}
+
+// #addkeg button {
+//   height: 40px;
+//   width: 100px;
+// }
+
+li label {
+  margin-right: 5px;
+}
+
+.container {
+  margin: 0;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container select {
+  align-self: center;
+}
