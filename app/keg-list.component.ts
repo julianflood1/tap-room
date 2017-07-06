@@ -6,7 +6,7 @@ import { Keg } from './keg.model';
   selector: 'keg-list',
   template: `
   <ol>
-    <li (click)="isEmpty(currentKeg)" *ngFor="let currentKeg of childKegList">{{currentKeg.name}}, {{currentKeg.brand}}, {{currentKeg.price}}, {{currentKeg.alcoholContent}} <button (click)="sellBeer()">Pour a Beer!</button><button (click)="editButtonHasBeenClicked(currentKeg)">Edit Keg!</button></li>
+    <li [class]="priceColor(currentKeg)" *ngFor="let currentKeg of childKegList"><label>keg name: </label>{{currentKeg.name}}<br> <label>Brand name: </label>{{currentKeg.brand}}<br> <label>Pint Price: </label>{{currentKeg.price}}<br> <label>ABV: </label>{{currentKeg.alcoholContent}}<br> <label>Pints left: </label>{{currentKeg.fullness}}<br><button (click)="sellBeer(currentKeg)">Pour a Beer!</button> <button (click)="editButtonHasBeenClicked(currentKeg)">Edit Keg!</button></li>
   </ol>
   `
 })
@@ -18,21 +18,18 @@ import { Keg } from './keg.model';
    this.clickSender.emit(kegToEdit);
  }
 
-   isEmpty(clickedKeg: Keg) {
-     if(clickedKeg.done === true) {
-       alert('This Keg is empty!');
-     } else {
-       alert('Drink Up!');
-     }
-   }
+   sellBeer(currentKeg){
+    currentKeg.fullness -= 1;
+    if(currentKeg.fullness <= 10) {
+      alert('This beer is running low! Replace Keg soon!');
+    }
+  }
 
-   fullnessColor(currentKeg) {
-     if(currentKeg.fullness === 3) {
-       return "bg-danger";
-     } else if (currentKeg.fullness === 2) {
-       return "bg-warning";
-     } else {
-       return "bg-info"
-     }
-   }
- }
+  priceColor(currentKeg){
+    if (currentKeg.price <= 4){
+      return "bg-info";
+    } else {
+      return "bg-danger";
+    }
+  }
+}

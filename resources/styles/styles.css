@@ -1,0 +1,14 @@
+ol{
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+li {
+  border: 1px solid black;
+  width: 300px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}

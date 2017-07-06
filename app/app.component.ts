@@ -6,7 +6,7 @@ import { Keg } from './keg.model';
   template: `
   <div class= "container">
     <h1>{{currentProject}}</h1>
-    <h3> Currently we have these beers: {{beer1}}/{{beer2}}/{{beer3}}</h3>
+    <h3> Currently we have these beers: </h3>
     <keg-list [childKegList]="masterKegList" (clickSender)="editKeg($event)"></keg-list>
     <br>
     <edit-keg [childSelectedKeg]="selectedKeg" (doneButtonClickedSender)="finishEditing()"></edit-keg>
@@ -17,16 +17,13 @@ import { Keg } from './keg.model';
 
 export class AppComponent {
   currentProject: string = 'Tap Room';
-  beer1: string = 'Traditional Lager';
-  beer2: string = 'Utopias';
-  beer3: string = 'Celebration IPA';
 
   selectedKeg = null;
 
   masterKegList: Keg[] = [
-    new Keg('Traditional Lager', 'Yuengling', '$5.00', '4.5%', 3),
-    new Keg('Utopias', 'Samuel Adams', '$5.00', '27.0%', 2),
-    new Keg('Celebration IPA', 'Sierra Nevada', '$5.00', '6.8%', 2)
+    new Keg('Traditional Lager', 'Yuengling',5 , 4.5, 124),
+    new Keg('Utopias', 'Samuel Adams', 3, 27, 124),
+    new Keg('Celebration IPA', 'Sierra Nevada', 4, 6.8, 124)
   ];
 
   editKeg(clickedKeg) {
@@ -40,6 +37,4 @@ export class AppComponent {
   addKeg(newKegFromChild: Keg) {
     this.masterKegList.push(newKegFromChild);
   }
-
-
 }
